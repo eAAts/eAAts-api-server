@@ -42,7 +42,7 @@ module.exports = {
     envType,
     app: {
         port: process.env.PORT || 3000,
-        appName: process.env.APP_NAME || "GDC-API-SERVER",
+        appName: process.env.APP_NAME || "THE-GRAPH-BACKEND",
         env: envType
     },
     database: database[envType],
@@ -57,4 +57,5 @@ module.exports = {
         else throw new Error(`No matching envType : ${envType}`)
         return getChecksumedAddresses(address_path); 
     },
+    subgraphQueryUrl: process.env.SUBGRAPH_QUERY_URL_LATEST,
 }
