@@ -15,6 +15,7 @@ let subscriptionId; // REPLACE this with your subscription ID
 let routerAddress;
 let linkTokenAddress;
 let donId;
+let endpoint;
 
 if(process.env.NETWORK == "TEST") {
   consumerAddress=process.env.CONSUMER_ADDRESS_MUMBAI;
@@ -22,12 +23,14 @@ if(process.env.NETWORK == "TEST") {
   routerAddress="0x6E2dc0F9DB014aE19888F539E59285D2Ea04244C"
   linkTokenAddress="0x326C977E6efc84E512bB9C30f76E30c160eD06FB"
   donId="fun-polygon-mumbai-1"
+  endpoint=process.env.RPC_URL_MUMBAI
 }else if(process.env.NETWORK == "MAIN") {
   consumerAddress=process.env.CONSUMER_ADDRESS_MATIC;
   subscriptionId=process.env.SUBSCRIPTION_ID_MATIC;
   routerAddress="0xdc2AAF042Aeff2E68B3e8E33F19e4B9fA7C73F10"
   linkTokenAddress="0xb0897686c545045afc77cf20ec7a532e3120e0f1"
   donId="fun-polygon-mainnet-1"
+  endpoint=process.env.RPC_URL_MATIC
 }
 
 const callSourceCode = async (param) => {
@@ -48,7 +51,7 @@ const callSourceCode = async (param) => {
       "private key not provided - check your environment variables"
     );
 
-  const rpcUrl = process.env.RPC_URL_MATIC; // fetch mumbai RPC URL
+  const rpcUrl = endpoint; // fetch mumbai RPC URL
 
   if (!rpcUrl)
     throw new Error(`rpcUrl not provided  - check your environment variables`);
@@ -132,7 +135,7 @@ const callSourceCode = async (param) => {
 
 async function decodeData(requestId) {
   console.log("decoding with requestID >>", requestId);
-  const rpcUrl = process.env.RPC_URL_MATIC; // fetch mumbai RPC URL
+  const rpcUrl = endpoint; // fetch mumbai RPC URL
 
   if (!rpcUrl)
     throw new Error(`rpcUrl not provided  - check your environment variables`);
