@@ -98,7 +98,7 @@ Before you start, make sure you have installed the necessary packages:
 npm install web3.storage 
 ```
 
-# API Endpoint
+# API
 GET /store
 This endpoint allows you to store metadata related to a specific image CID.
 
@@ -124,4 +124,41 @@ Web3.Storage-->>-API: Return Metadata CID
 API-->>-Client: Return Metadata CID
 ```
 
-## 
+## Chainlink Function Calls API Documentation
+# Overview
+This API utilizes Chainlink to invoke on-chain functions and then decodes the resulting Chainlink response data.
+
+# Prerequisites
+```
+npm install express ethers @chainlink/functions-toolkit dotenv
+```
+# API
+GET /
+This endpoint invokes Chainlink functions with the provided parameters and returns the decoded Chainlink response data.
+
+# Request Parameters:
+tokenAddress: Address of the token. (required)
+amount: Amount for the function call. (required)
+targetChainId: Target blockchain network ID. (required)
+Example:
+```
+GET /?tokenAddress=0x123456...&amount=10&targetChainId=137
+```
+Response:
+Decoded Chainlink response data.
+
+
+# Sequence Diagram
+```mermaid
+sequenceDiagram
+participant Client
+participant API
+participant Chainlink
+
+Client->>API: GET / with parameters (tokenAddress, amount, targetChainId)
+API->>Chainlink: callSourceCode(tokenAddress, amount, targetChainId)
+Chainlink->>API: Returns transaction details and requestId
+API->>Chainlink: decodeData(requestId)
+Chainlink->>API: Returns decoded response
+API->>Client: Return decoded Chainlink data
+```
