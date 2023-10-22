@@ -88,17 +88,17 @@ this is our collection in open sea
 https://testnets.opensea.io/collection/eaats
 
 ## Filecoin Metadata API
-# Overview
+### Overview
 This API allows users to store metadata associated with an image CID on the Filecoin network using the web3.storage capabilities.
 
-# Prerequisites
+### Prerequisites
 Before you start, make sure you have installed the necessary packages:
 
 ```
 npm install web3.storage 
 ```
 
-# API
+### API
 GET /store
 This endpoint allows you to store metadata related to a specific image CID.
 
@@ -128,14 +128,14 @@ API-->>-Client: Return Metadata CID
 ```
 
 ## Chainlink Function Calls API Documentation
-# Overview
+### Overview
 This API utilizes Chainlink to invoke on-chain functions and then decodes the resulting Chainlink response data.
 
-# Prerequisites
+### Prerequisites
 ```
 npm install express ethers @chainlink/functions-toolkit dotenv
 ```
-# API
+### API
 GET /
 This endpoint invokes Chainlink functions with the provided parameters and returns the decoded Chainlink response data.
 
