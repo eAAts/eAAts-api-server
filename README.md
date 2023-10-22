@@ -102,11 +102,14 @@ npm install web3.storage
 GET /store
 This endpoint allows you to store metadata related to a specific image CID.
 
-# Request Parameters:
+Request Parameters:
+```
 cid: The CID of the image. (required)
 description: A description associated with the image. (required)
 menu: The menu/type related to the image. (required)
 ratings: Ratings given to the image. (required)
+```
+
 Example Usage:
 ```
 GET /store?cid=bafkreib3ip2x6tfpy5jnneh64yrle25wozvgsr6fqhqxfs2rt2uilzlkpy&description=The%20hamburger%20was%20delicious&menu=hamBurger&ratings=10
@@ -136,10 +139,13 @@ npm install express ethers @chainlink/functions-toolkit dotenv
 GET /
 This endpoint invokes Chainlink functions with the provided parameters and returns the decoded Chainlink response data.
 
-# Request Parameters:
+Request Parameters:
+```
 tokenAddress: Address of the token. (required)
 amount: Amount for the function call. (required)
 targetChainId: Target blockchain network ID. (required)
+````
+
 Example:
 ```
 GET /?tokenAddress=0x123456...&amount=10&targetChainId=137
