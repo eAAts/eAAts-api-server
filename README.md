@@ -16,3 +16,6 @@ http://localhost:3000/query?entityName=<entityName>&first=<first>&skip=<skip>
 npm install
 npm start
 ```
+
+
+## 
