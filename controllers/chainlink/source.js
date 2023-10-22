@@ -2,7 +2,7 @@ const tokenAddressArg = args[0];
 const amountArg = args[1];
 const targetChainIdArg = args[2];
 const payment = Functions.makeHttpRequest({
-  url: `http://18.217.208.178:3000/payment`,
+  url: `http://18.217.208.178:3000/pay`,
   headers: {
     "Content-Type": "application/json",
   },
