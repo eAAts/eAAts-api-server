@@ -33,7 +33,7 @@ if(process.env.NETWORK == "TEST") {
   endpoint=process.env.RPC_URL_MATIC
 }
 
-const callSourceCode = async (param) => {
+const callSourceCode = async (tokenAddress, amount, targetChainId) => {
   // hardcoded for Polygon Mumbai
   // Initialize functions settings
   const source = fs
@@ -41,7 +41,7 @@ const callSourceCode = async (param) => {
     .toString();
   //TODO 여기에 인자 값을 넣어서 넘긴다.
   //넣을 파라미터 값들은 address tokenAddress, address recipient, uint256 amount, uint256 targetChainId
-  const args = [param];
+  const args = [tokenAddress, amount, targetChainId];
   const gasLimit = 300000;
 
   // Initialize ethers signer and provider to interact with the contracts onchain
